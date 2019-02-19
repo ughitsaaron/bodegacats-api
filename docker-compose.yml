@@ -1,0 +1,19 @@
+version: "3"
+services:
+  postgres:
+    image: postgres:latest
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: bodegacats_dev
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_HOST: bodegacatsdb
+      TZ: America/New_York
+      PGDATA: /var/lib/postgresql/data/pgdata
+    restart: always
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+# Define the volumes
+volumes:
+  pgdata:
